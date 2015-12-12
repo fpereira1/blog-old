@@ -60,3 +60,17 @@
 {% include ga.html %}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/2.6.1/iframeResizer.contentWindow.min.js"></script>
+
+<script type="text/javascript">
+  $('a.external').on('click', function() {
+
+    // Do not proceed if ga is not defined
+    if(typeof ga === 'undefined') {
+      return;
+    }
+
+    var url = $(this).attr('href');
+
+    ga('send', 'event', 'outbound', 'click', url);
+  });
+</script>
